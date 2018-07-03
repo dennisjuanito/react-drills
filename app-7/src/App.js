@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
         list: []
     }
-    this.addTask = this.addTask.bind(this);
+    //this.addTask = this.addTask.bind(this);
 
 }
 
@@ -18,11 +18,12 @@ addTask(newTask) {
     list: [...this.state.list, newTask]
   });
 }
-
+  //the input in newtask is using arrow function must pass the input as a parameter
+  //or you can also pass as this.addTask without envoking
   render() {
     return (
       <div className="App">
-        <NewTask  newTask={this.addTask} />
+        <NewTask  newTask={(input) => this.addTask(input)} /> 
         <List tasks={ this.state.list } />
       </div>
     );
